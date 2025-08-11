@@ -1,0 +1,236 @@
+[
+  {
+    "id": "bpa",
+    "name": "Bisphenol A (BPA)",
+    "aliases": ["bisphenol a", "bpa", "bisphenols"],
+    "severity": "High",
+    "description": "Endocrine disruptor linked to fertility issues and hormonal imbalances",
+    "whyHarmful": "BPA can mimic estrogen in the body and disrupt normal hormone function, potentially leading to reproductive issues, developmental problems, and increased cancer risk.",
+    "sourceLink": "https://www.niehs.nih.gov/health/topics/agents/ppa/"
+  },
+  {
+    "id": "phthalates",
+    "name": "Phthalates",
+    "aliases": ["phthalates", "phthalate", "diethyl phthalate", "dibutyl phthalate"],
+    "severity": "High",
+    "description": "Chemical plasticizers that disrupt hormones",
+    "whyHarmful": "Linked to reproductive toxicity, endocrine disruption, and developmental issues in children.",
+    "sourceLink": "https://www.cdc.gov/biomonitoring/Phthalates_FactSheet.html"
+  },
+  {
+    "id": "pfas",
+    "name": "PFAS (Forever Chemicals)",
+    "aliases": ["perfluoroalkyl", "pfc", "pfas", "perfluorinated compounds"],
+    "severity": "High",
+    "description": "Persistent chemicals that accumulate in the body",
+    "whyHarmful": "PFAS don't break down naturally and accumulate in the body, linked to cancer, liver damage, and immune system effects.",
+    "sourceLink": "https://www.epa.gov/pfas"
+  },
+  {
+    "id": "perchlorate",
+    "name": "Perchlorate",
+    "aliases": ["perchlorate", "potassium perchlorate", "sodium perchlorate"],
+    "severity": "Medium",
+    "description": "Chemical that interferes with thyroid function",
+    "whyHarmful": "Can disrupt thyroid hormone production, which is crucial for metabolism and development.",
+    "sourceLink": "https://www.epa.gov/ground-water-and-drinking-water/perchlorate"
+  },
+  {
+    "id": "red40",
+    "name": "Red #40",
+    "aliases": ["red #40", "red 40", "allura red ac", "fd&c red no. 40"],
+    "severity": "Medium",
+    "description": "Artificial food dye",
+    "whyHarmful": "Linked to hyperactivity in children and potential cancer risk. May cause allergic reactions.",
+    "sourceLink": "https://www.cspi.org/resource/food-dyes-rainbow-risks"
+  },
+  {
+    "id": "blue1",
+    "name": "Blue #1",
+    "aliases": ["blue #1", "blue 1", "brilliant blue fcf", "fd&c blue no. 1"],
+    "severity": "Medium",
+    "description": "Artificial food dye",
+    "whyHarmful": "May cause allergic reactions and has been linked to hyperactivity in sensitive children.",
+    "sourceLink": "https://www.cspi.org/resource/food-dyes-rainbow-risks"
+  },
+  {
+    "id": "blue2",
+    "name": "Blue #2",
+    "aliases": ["blue #2", "blue 2", "indigotine", "fd&c blue no. 2"],
+    "severity": "Medium",
+    "description": "Artificial food dye",
+    "whyHarmful": "Potential allergen and may contribute to behavioral issues in children.",
+    "sourceLink": "https://www.cspi.org/resource/food-dyes-rainbow-risks"
+  },
+  {
+    "id": "yellow5",
+    "name": "Yellow #5",
+    "aliases": ["yellow #5", "yellow 5", "tartrazine", "fd&c yellow no. 5"],
+    "severity": "Medium",
+    "description": "Artificial food dye",
+    "whyHarmful": "Known allergen that can cause hives, asthma, and hyperactivity in sensitive individuals.",
+    "sourceLink": "https://www.cspi.org/resource/food-dyes-rainbow-risks"
+  },
+  {
+    "id": "yellow6",
+    "name": "Yellow #6",
+    "aliases": ["yellow #6", "yellow 6", "sunset yellow fcf", "fd&c yellow no. 6"],
+    "severity": "Medium",
+    "description": "Artificial food dye",
+    "whyHarmful": "May cause allergic reactions and has been linked to hyperactivity and attention problems.",
+    "sourceLink": "https://www.cspi.org/resource/food-dyes-rainbow-risks"
+  },
+  {
+    "id": "caramel_coloring",
+    "name": "Caramel Coloring",
+    "aliases": ["caramel coloring", "caramel color", "ammonia caramel", "sulfite ammonia caramel"],
+    "severity": "Medium",
+    "description": "Artificial coloring that may contain carcinogens",
+    "whyHarmful": "Some types contain 4-methylimidazole, a potential carcinogen formed during manufacturing.",
+    "sourceLink": "https://www.cspi.org/resource/caramel-coloring"
+  },
+  {
+    "id": "sodium_nitrate",
+    "name": "Sodium Nitrate",
+    "aliases": ["sodium nitrate", "sodium nitrite", "nitrates", "nitrites"],
+    "severity": "High",
+    "description": "Preservative that forms carcinogenic compounds",
+    "whyHarmful": "Can form nitrosamines in the body, which are potent carcinogens linked to stomach and colorectal cancers.",
+    "sourceLink": "https://www.cancer.org/healthy/cancer-causes/chemicals/nitrates-nitrites-and-cancer.html"
+  },
+  {
+    "id": "sulfites",
+    "name": "Sulfites",
+    "aliases": ["sulfites", "sulfur dioxide", "sodium sulfite", "potassium sulfite"],
+    "severity": "Medium",
+    "description": "Preservatives that can cause severe allergic reactions",
+    "whyHarmful": "Can trigger asthma attacks and severe allergic reactions in sensitive individuals.",
+    "sourceLink": "https://www.fda.gov/food/food-additives-petitions/sulfites"
+  },
+  {
+    "id": "azodicarbonamide",
+    "name": "Azodicarbonamide",
+    "aliases": ["azodicarbonamide", "adc", "azobisformamide"],
+    "severity": "High",
+    "description": "Dough conditioner banned in many countries",
+    "whyHarmful": "Breaks down into semicarbazide, a potential carcinogen. Banned in Europe and Australia.",
+    "sourceLink": "https://www.ewg.org/foodscores/content/natural-vs-artificial-flavors/"
+  },
+  {
+    "id": "potassium_bromate",
+    "name": "Potassium Bromate",
+    "aliases": ["potassium bromate", "bromate", "bromated flour"],
+    "severity": "High",
+    "description": "Flour improver that's a probable carcinogen",
+    "whyHarmful": "Classified as a probable human carcinogen by the International Agency for Research on Cancer.",
+    "sourceLink": "https://www.cancer.gov/about-cancer/causes-prevention/risk/diet/artificial-sweeteners-fact-sheet"
+  },
+  {
+    "id": "bha",
+    "name": "BHA (Butylated Hydroxyanisole)",
+    "aliases": ["bha", "butylated hydroxyanisole", "e320"],
+    "severity": "High",
+    "description": "Antioxidant preservative that's a possible carcinogen",
+    "whyHarmful": "Reasonably anticipated to be a human carcinogen by the National Toxicology Program.",
+    "sourceLink": "https://ntp.niehs.nih.gov/whatwestudy/assessments/cancer/roc/"
+  },
+  {
+    "id": "bht",
+    "name": "BHT (Butylated Hydroxytoluene)",
+    "aliases": ["bht", "butylated hydroxytoluene", "e321"],
+    "severity": "Medium",
+    "description": "Antioxidant preservative with potential health risks",
+    "whyHarmful": "May interfere with hormones and has been linked to liver and kidney damage in animal studies.",
+    "sourceLink": "https://www.ewg.org/foodscores/content/natural-vs-artificial-flavors/"
+  },
+  {
+    "id": "msg",
+    "name": "MSG (Monosodium Glutamate)",
+    "aliases": ["monosodium glutamate", "msg", "glutamic acid", "hydrolyzed protein"],
+    "severity": "Low",
+    "description": "Flavor enhancer that may cause sensitivity reactions",
+    "whyHarmful": "Can cause headaches, nausea, and other symptoms in sensitive individuals (MSG symptom complex).",
+    "sourceLink": "https://www.fda.gov/food/food-additives-petitions/questions-and-answers-monosodium-glutamate-msg"
+  },
+  {
+    "id": "hfcs",
+    "name": "High Fructose Corn Syrup",
+    "aliases": ["high fructose corn syrup", "hfcs", "corn syrup", "fructose syrup"],
+    "severity": "Medium",
+    "description": "Highly processed sweetener linked to obesity and diabetes",
+    "whyHarmful": "Associated with increased risk of obesity, diabetes, and metabolic syndrome when consumed regularly.",
+    "sourceLink": "https://www.hsph.harvard.edu/nutritionsource/carbohydrates/added-sugar-in-the-diet/"
+  },
+  {
+    "id": "aspartame",
+    "name": "Aspartame",
+    "aliases": ["aspartame", "equal", "nutrasweet", "aminosweet"],
+    "severity": "Medium",
+    "description": "Artificial sweetener with controversial health effects",
+    "whyHarmful": "May cause headaches, dizziness, and mood changes in sensitive individuals. Long-term safety debated.",
+    "sourceLink": "https://www.cancer.gov/about-cancer/causes-prevention/risk/diet/artificial-sweeteners-fact-sheet"
+  },
+  {
+    "id": "sucralose",
+    "name": "Sucralose",
+    "aliases": ["sucralose", "splenda", "trichlorogalactosucrose"],
+    "severity": "Medium",
+    "description": "Artificial sweetener that may affect gut health",
+    "whyHarmful": "May negatively impact gut bacteria and glucose metabolism according to recent studies.",
+    "sourceLink": "https://www.nature.com/articles/nature13793"
+  },
+  {
+    "id": "canola_oil",
+    "name": "Canola Oil",
+    "aliases": ["canola oil", "rapeseed oil", "low erucic acid rapeseed oil"],
+    "severity": "Low",
+    "description": "Highly processed oil high in omega-6 fatty acids",
+    "whyHarmful": "Highly refined processing and high omega-6 content may contribute to inflammation when consumed in excess.",
+    "sourceLink": "https://www.hsph.harvard.edu/nutritionsource/what-should-you-eat/fats-and-cholesterol/"
+  },
+  {
+    "id": "soybean_oil",
+    "name": "Soybean Oil",
+    "aliases": ["soybean oil", "soy oil", "soya oil"],
+    "severity": "Low",
+    "description": "Highly processed oil high in omega-6 fatty acids",
+    "whyHarmful": "Often highly processed and high in omega-6 fatty acids, which may promote inflammation.",
+    "sourceLink": "https://www.hsph.harvard.edu/nutritionsource/what-should-you-eat/fats-and-cholesterol/"
+  },
+  {
+    "id": "corn_oil",
+    "name": "Corn Oil",
+    "aliases": ["corn oil", "maize oil"],
+    "severity": "Low",
+    "description": "Highly processed oil with poor omega fatty acid ratio",
+    "whyHarmful": "High in omega-6 fatty acids and often highly processed, potentially contributing to inflammation.",
+    "sourceLink": "https://www.hsph.harvard.edu/nutritionsource/what-should-you-eat/fats-and-cholesterol/"
+  },
+  {
+    "id": "carrageenan",
+    "name": "Carrageenan",
+    "aliases": ["carrageenan", "irish moss extract", "chondrus crispus"],
+    "severity": "Medium",
+    "description": "Seaweed extract that may cause digestive inflammation",
+    "whyHarmful": "May trigger inflammatory responses in the digestive system and has been linked to gut irritation.",
+    "sourceLink": "https://www.cornucopia.org/carrageenan-how-a-natural-food-additive-is-making-us-sick/"
+  },
+  {
+    "id": "sodium_benzoate",
+    "name": "Sodium Benzoate",
+    "aliases": ["sodium benzoate", "benzoic acid", "e211"],
+    "severity": "Medium",
+    "description": "Preservative that can form benzene when combined with vitamin C",
+    "whyHarmful": "Can form benzene (a known carcinogen) when combined with ascorbic acid (vitamin C) under certain conditions.",
+    "sourceLink": "https://www.fda.gov/food/cfsan-constituent-updates/fda-announces-results-study-benzene-soft-drinks-and-other-beverages"
+  },
+  {
+    "id": "propylene_glycol",
+    "name": "Propylene Glycol",
+    "aliases": ["propylene glycol", "1,2-propanediol", "e1520"],
+    "severity": "Low",
+    "description": "Chemical compound used as a humectant and preservative",
+    "whyHarmful": "Generally recognized as safe but may cause skin irritation and allergic reactions in sensitive individuals.",
+    "sourceLink": "https://www.ewg.org/skindeep/ingredients/705315-PROPYLENE_GLYCOL/"
+  }
+]
