@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import Quagga from 'quagga';
 
 const BarcodeScanner = ({ onScanComplete }) => {
   const [isScanning, setIsScanning] = useState(false);
@@ -62,20 +63,46 @@ const BarcodeScanner = ({ onScanComplete }) => {
     setScanProgress('');
   };
 
-  // Start camera for barcode scanning
+  // Start camera barcode scanning
   const startCamera = async () => {
     try {
       setScanProgress('Starting camera...');
-      const stream = await navigator.mediaDevices.getUserMedia({ 
-        video: { facingMode: 'environment' } // Use back camera
+      
+      // Initialize Quagga barcode scanner
+      Quagga.init({
+        inputStream: {
+          name: "Live",
+          type: "LiveStream",
+          target: videoRef.current,
+          constraints: {
+            width: 640,
+            height: 480,
+            facingMode: "environment" // Back camera
+          }
+        },
+        decoder: {
+          readers: [
+            "code_128_reader",
+            "ean_reader", 
+            "ean_8_reader",
+            "code_39_reader"
+          ]
+        }
+      }, (err) => {
+        if (err) {
+          console.error('Quagga initialization error:', err);
+          alert('Could not access camera. Please use manual entry.');
+          setScanProgress('');
+          return;
+        }
+        
+        console.log("Barcode scanner initialized");
+        Quagga.start();
+        setScanProgress('Point camera at barcode...');
+        
+        // Listen for barcode detection
+        Quagga.onDetected(onBarcodeDetected);
       });
-      
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-        streamRef.current = stream;
-      }
-      
-      setScanProgress('Point camera at barcode...');
       
     } catch (error) {
       console.error('Camera error:', error);
@@ -84,14 +111,28 @@ const BarcodeScanner = ({ onScanComplete }) => {
     }
   };
 
+  // Handle barcode detection
+  const onBarcodeDetected = (result) => {
+    const barcode = result.codeResult.code;
+    console.log('Barcode detected:', barcode);
+    
+    // Stop scanning
+    stopCamera();
+    
+    // Look up the product
+    setIsScanning(true);
+    lookupProduct(barcode).finally(() => {
+      setIsScanning(false);
+      setScanProgress('');
+    });
+  };
+
   // Stop camera
   const stopCamera = () => {
+    Quagga.stop();
     if (streamRef.current) {
       streamRef.current.getTracks().forEach(track => track.stop());
       streamRef.current = null;
-    }
-    if (videoRef.current) {
-      videoRef.current.srcObject = null;
     }
   };
 
@@ -136,27 +177,64 @@ const BarcodeScanner = ({ onScanComplete }) => {
           </button>
         </div>
         <div style={{ fontSize: '12px', color: '#666', marginTop: '5px' }}>
-          💡 Test with: 737628064502 (Coca Cola) or 3017620422003 (Nutella)
+          💡 Test with: 737628064502 (Coca Cola) or 3017620422003 (Nutella) or 0016000275263 (M&Ms)
         </div>
       </div>
 
-      {/* Camera Scanner - Simplified */}
+      {/* Camera Scanner */}
       <div style={{ marginBottom: '20px' }}>
-        <h3>Camera Scanner (Coming Soon)</h3>
+        <h3>Camera Scanner</h3>
         
-        <div style={{
-          textAlign: 'center',
-          padding: '40px',
-          border: '2px dashed #ffc107',
-          borderRadius: '8px',
-          background: '#fff3cd'
-        }}>
-          <p style={{ fontSize: '48px', margin: '0' }}>🚧</p>
-          <p><strong>Camera barcode detection is coming soon!</strong></p>
-          <p style={{ fontSize: '14px', color: '#666' }}>
-            For now, use manual entry above with the barcode numbers
-          </p>
-        </div>
+        {!streamRef.current ? (
+          <div style={{
+            textAlign: 'center',
+            padding: '40px',
+            border: '2px dashed #28a745',
+            borderRadius: '8px',
+            background: '#d4edda'
+          }}>
+            <p style={{ fontSize: '48px', margin: '0' }}>📷</p>
+            <p><strong>Click to start barcode scanner</strong></p>
+            <p style={{ fontSize: '14px', color: '#666' }}>
+              Will automatically detect and scan barcodes
+            </p>
+            <button 
+              onClick={startCamera}
+              className="button"
+              disabled={isScanning}
+              style={{ background: '#28a745', marginTop: '10px' }}
+            >
+              Start Camera Scanner
+            </button>
+          </div>
+        ) : (
+          <div style={{ textAlign: 'center' }}>
+            <div 
+              ref={videoRef}
+              style={{
+                width: '100%',
+                maxWidth: '400px',
+                height: '300px',
+                border: '2px solid #28a745',
+                borderRadius: '8px',
+                background: '#000',
+                margin: '0 auto 10px'
+              }}
+            />
+            <div>
+              <button 
+                onClick={stopCamera}
+                className="button"
+                style={{ background: '#dc3545' }}
+              >
+                Stop Scanner
+              </button>
+            </div>
+            <p style={{ fontSize: '14px', color: '#666', marginTop: '10px' }}>
+              Point camera at barcode - it will scan automatically
+            </p>
+          </div>
+        )}
       </div>
 
       {/* Progress */}
