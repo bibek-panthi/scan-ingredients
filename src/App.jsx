@@ -17,7 +17,7 @@ import History from './components/History';
 
 // Utils
 import { findIngredientsInText } from './utils/ingredientMatcher';
-import { saveCustomIngredients, loadCustomIngredients, saveEnabledIngredients, loadEnabledIngredients } from './utils/storage';
+import { saveCustomIngredients, getCustomIngredients, saveEnabledIngredients, getEnabledIngredients } from './utils/storage';
 
 // Data
 import avoidListData from './data/avoidList.json';
@@ -60,11 +60,11 @@ function App() {
     setAvoidList(avoidListData);
     
     // Load custom ingredients from localStorage
-    const savedCustom = loadCustomIngredients();
+    const savedCustom = getCustomIngredients();
     setCustomIngredients(savedCustom);
     
     // Load enabled ingredients from localStorage
-    const savedEnabled = loadEnabledIngredients();
+    const savedEnabled = getEnabledIngredients();
     setEnabledIngredients(savedEnabled);
     
     // Auth state listener

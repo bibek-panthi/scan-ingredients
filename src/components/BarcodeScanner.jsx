@@ -11,9 +11,12 @@ const BarcodeScanner = ({ onScanComplete }) => {
   const lookupProduct = async (barcode) => {
     try {
       setScanProgress('Looking up product...');
+      console.log('Looking up barcode:', barcode);
       
       const response = await fetch(`https://world.openfoodfacts.org/api/v0/product/${barcode}.json`);
       const data = await response.json();
+      
+      console.log('API Response:', data);
       
       if (data.status === 1 && data.product) {
         const product = data.product;
@@ -41,7 +44,8 @@ const BarcodeScanner = ({ onScanComplete }) => {
       
     } catch (error) {
       console.error('Barcode lookup error:', error);
-      alert(`Could not find product: ${error.message}\n\nTry:\n• Manual entry\n• Different barcode\n• OCR scanner for ingredient text`);
+      setScanProgress('');
+      alert(`Could not find product: ${error.message}\n\nTry:\n• Different barcode (like: 737628064502)\n• OCR scanner for ingredient text`);
     }
   };
 
@@ -110,7 +114,7 @@ const BarcodeScanner = ({ onScanComplete }) => {
         <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
           <input
             type="text"
-            placeholder="Enter barcode (e.g., 123456789)"
+            placeholder="Enter barcode (try: 737628064502)"
             value={manualBarcode}
             onChange={(e) => setManualBarcode(e.target.value)}
             style={{
@@ -131,70 +135,28 @@ const BarcodeScanner = ({ onScanComplete }) => {
             {isScanning ? 'Looking up...' : 'Lookup'}
           </button>
         </div>
+        <div style={{ fontSize: '12px', color: '#666', marginTop: '5px' }}>
+          💡 Test with: 737628064502 (Coca Cola) or 3017620422003 (Nutella)
+        </div>
       </div>
 
-      {/* Camera Scanner */}
+      {/* Camera Scanner - Simplified */}
       <div style={{ marginBottom: '20px' }}>
-        <h3>Camera Scanner</h3>
+        <h3>Camera Scanner (Coming Soon)</h3>
         
-        {!streamRef.current ? (
-          <div style={{
-            textAlign: 'center',
-            padding: '40px',
-            border: '2px dashed #ccc',
-            borderRadius: '8px',
-            background: '#f8f9fa'
-          }}>
-            <p style={{ fontSize: '48px', margin: '0' }}>📷</p>
-            <p>Click to start camera scanner</p>
-            <button 
-              onClick={startCamera}
-              className="button"
-              disabled={isScanning}
-            >
-              Start Camera
-            </button>
-          </div>
-        ) : (
-          <div>
-            <video
-              ref={videoRef}
-              autoPlay
-              playsInline
-              style={{
-                width: '100%',
-                maxWidth: '400px',
-                border: '1px solid #ccc',
-                borderRadius: '8px'
-              }}
-            />
-            <div style={{ textAlign: 'center', marginTop: '10px' }}>
-              <button 
-                onClick={stopCamera}
-                className="button"
-                style={{ background: '#dc3545', marginRight: '10px' }}
-              >
-                Stop Camera
-              </button>
-              <button 
-                onClick={() => {
-                  // Simple manual trigger - in a real app you'd use a barcode detection library
-                  const testBarcode = prompt('Enter barcode from image:');
-                  if (testBarcode) {
-                    setIsScanning(true);
-                    lookupProduct(testBarcode).finally(() => {
-                      setIsScanning(false);
-                      setScanProgress('');
-                    });
-                  }
-                }}
-                className="button"
-              >
-                Manual Capture
-              </button>
-            </div>
-          </div>
-        )}
+        <div style={{
+          textAlign: 'center',
+          padding: '40px',
+          border: '2px dashed #ffc107',
+          borderRadius: '8px',
+          background: '#fff3cd'
+        }}>
+          <p style={{ fontSize: '48px', margin: '0' }}>🚧</p>
+          <p><strong>Camera barcode detection is coming soon!</strong></p>
+          <p style={{ fontSize: '14px', color: '#666' }}>
+            For now, use manual entry above with the barcode numbers
+          </p>
+        </div>
       </div>
 
       {/* Progress */}
